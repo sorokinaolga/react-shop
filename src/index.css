@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+li {
+  line-height: 1.7rem;
+}
