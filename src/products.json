@@ -1,26 +1,56 @@
 [
   {
     "id": 1,
-    "name": "Имя товара1"
+    "name": "Название первого товара",
+    "isInStock": true,
+    "imgUrl": "https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg",
+    "price": "12 000",
+    "subPriceContent": "",
+    "rating": 4
   },
   {
     "id": 2,
-    "name": "Имя товара2"
+    "name": "Название второго товара",
+    "isInStock": true,
+    "imgUrl": "https://cdn.pixabay.com/photo/2014/08/05/10/27/iphone-410311__340.jpg",
+    "price": "15 000",
+    "subPriceContent": "",
+    "rating": 3
   },
   {
     "id": 3,
-    "name": "Имя товара3"
+    "name": "Название третьего товара",
+    "isInStock": true,
+    "imgUrl": "https://cdn.pixabay.com/photo/2016/12/09/11/33/smartphone-1894723__340.jpg",
+    "price": "9 000",
+    "subPriceContent": "",
+    "rating": 2
   },
   {
     "id": 4,
-    "name": "Имя товара4"
+    "name": "Название четвертого товара",
+    "isInStock": true,
+    "imgUrl": "https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg",
+    "price": "11 000",
+    "subPriceContent": "",
+    "rating": 5
   },
   {
     "id": 5,
-    "name": "Имя товара5"
+    "name": "Название пятого товара",
+    "isInStock": false,
+    "imgUrl": "https://cdn.pixabay.com/photo/2015/03/26/09/41/phone-690091__340.jpg",
+    "price": "17 500",
+    "subPriceContent": "",
+    "rating": 1
   },
   {
     "id": 6,
-    "name": "Имя товара6"
+    "name": "Название шестого товара",
+    "isInStock": false,
+    "imgUrl": "https://cdn.pixabay.com/photo/2016/03/27/19/43/smartphone-1283938__340.jpg",
+    "price": "13 800",
+    "subPriceContent": "",
+    "rating": 3
   }
 ]
