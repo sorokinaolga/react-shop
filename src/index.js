@@ -10,8 +10,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MainTitle />
-        <Cards data={products} />
+        <main>
+          <MainTitle>Список товаров</MainTitle>
+          <Cards data={products} />
+        </main>
       </div>
     );
   }

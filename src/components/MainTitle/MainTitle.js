@@ -1,8 +1,10 @@
 import React from 'react';
 import './MainTitle.css';
 
-const MainTitle = () => {
-  return <h1>Список товаров</h1>;
-};
+class MainTitle extends React.Component {
+  render() {
+    return <h1 className="main-title">{this.props.children}</h1>;
+  }
+}
 
 export default MainTitle;

@@ -6,10 +6,10 @@ import './Cards.css';
 
 const Cards = ({ data }) => {
   return (
-    <div className="cards">
+    <ul className="cards">
       {data.map(item => {
         return (
-          <div className="cards__item">
+          <li className="cards__item">
             <ProductItem
               isInStock={item.isInStock}
               img={item.imgUrl}
@@ -20,10 +20,10 @@ const Cards = ({ data }) => {
               rating={item.rating}
               ratingComponent={RatingComponent}
             />
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 
