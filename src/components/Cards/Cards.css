@@ -1,0 +1,12 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 960px;
+}
+
+.cards__item {
+  display: flex;
+  justify-content: center;
+  width: 33%;
+  margin: 30px 0;
+}

@@ -1,34 +1,21 @@
 import React from 'react';
+import { Component } from 'react';
 import ReactDOM from 'react-dom';
-import product from './products.json';
+import products from './products.json';
 import './index.css';
+import MainTitle from './components/MainTitle/MainTitle';
+import Cards from './components/Cards/Cards';
 
-const selectProduct = product.slice(0, 3);
-
-function App() {
-  return (
-    <div className="App">
-      <h1>Список товаров</h1>
-      <ProductsList product={selectProduct} />
-    </div>
-  );
-}
-
-class ProductsList extends React.Component {
+class App extends Component {
   render() {
     return (
-      <ul>
-        {this.props.product.map(item => {
-          return <ItemList key={item.id} product={item} />;
-        })}
-      </ul>
+      <div className="App">
+        <main>
+          <MainTitle>Список товаров</MainTitle>
+          <Cards data={products} />
+        </main>
+      </div>
     );
-  }
-}
-
-class ItemList extends React.Component {
-  render() {
-    return <li>{this.props.product.name}</li>;
   }
 }
 
