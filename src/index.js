@@ -18,38 +18,33 @@ class App extends Component {
         maxPrice: maxBy(obj => obj.price, data).price
     }
   }
+
+  changePrices = (minValue, maxValue) => {
+    this.setState({
+      filteredData: data.filter((item) => {
+          return item.price >= minValue && item.price <= maxValue;
+      })
+    });
+  }
   
   render() {
-
-    const {minPrice, maxPrice, filteredData} = this.state;
-
     return (
       <div className="App">
         <MainTitle>Список товаров</MainTitle>
         <div className="container">
           <aside>
-            <PriceFilter minPrice={minPrice}
-                         maxPrice={maxPrice} 
-                         priceFilterData={this.priceFilterData}
-                         title="Цена"/>
+            <PriceFilter 
+                        minPrice={this.state.minPrice}
+                        maxPrice={this.state.maxPrice} 
+                        changePrices={this.changePrices}
+                        title="Цена"/>
           </aside>
           <main>
-            <Cards data={filteredData} />
+            <Cards data={this.state.filteredData} />
           </main>
         </div>
       </div>
     );
-  }
-
-  priceFilterData = (min, max) => {
-    const minValue = min >= 0 ? min : this.state.minPrice;
-    const maxValue = max >= 0 ? max : this.state.maxPrice;
-
-    this.setState({
-        filteredData: data.filter((item) => {
-            return item.price >= minValue && item.price <= maxValue;
-        })
-    });
   }
 
 }
