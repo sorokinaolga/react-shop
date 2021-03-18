@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+
 import './RatingComponent.css';
 
-const RatingComponent = ({ isFilled }) => {
-  return <div className={`star ${isFilled ? 'star-fill' : ''}`} />;
+class RatingComponent extends Component {
+  render() {
+    return <div className={`star ${this.props.isFilled ? 'star-fill' : ''}`} />;
+  }
 };
 
 RatingComponent.propTypes = {
