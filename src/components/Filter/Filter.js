@@ -9,10 +9,6 @@ import style from './Filter.module.css';
 
 class Filter extends React.Component {
 
-  // handleChange = (name, value) => {
-  //   this.props.handleFilter({[name]: value });
-  // };
-
   handleChangeMin = value => {
     this.props.handleFilter({ minPrice: value });
   };
@@ -25,8 +21,8 @@ class Filter extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h4 className={style.filter_title}>Цена</h4>
+      <form>
+        <h3 className={style.filter_title}>Цена</h3>
         <div className={style.filter_row}>
           <div className={style.filter_price}>
             <label className={style.filter_label} htmlFor="from">от</label>
@@ -37,7 +33,10 @@ class Filter extends React.Component {
             <InputNumber name="maxPrice" value={this.props.maxPrice} onChange={this.handleChangeMax} />
           </div>
         </div>
-        <InputDiscount title="Скидка" name="discount" value={this.props.discount} onChange={this.handleChange} />
+        <InputDiscount title="Скидка" 
+                      name="discount" 
+                      value={this.props.discount} 
+                      onChange={this.handleChangeDiscount} />
       </form>
     )
   }

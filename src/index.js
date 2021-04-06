@@ -20,8 +20,8 @@ class App extends Component {
     }
   }
 
-  handleFilter = Filters => {
-    this.setState(Filters, () => {
+  handleFilter = filters => {
+    this.setState(filters, () => {
       this.changeFilter(this.state.minPrice, this.state.maxPrice, this.state.discount);
     })
   };

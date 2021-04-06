@@ -11,17 +11,14 @@ export default HoccedComponent => {
       };
     }
 
-    handleChange = events => {
-      const newValue = toInt(events.target.value);
+    handleChange = event => {
+      const newValue = toInt(event.target.value);
 
       if (newValue !== this.state.value) {
         this.setState({
           value: newValue,
         });
-
-        if (this.props.onChange) {
-          this.props.onChange(newValue);
-        }
+        this.props.onChange(newValue);
       }
     };
 
