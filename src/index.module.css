@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-areas:
+    "h h h"
+    "f c s";
+  grid-template-columns: 300px 1fr 200px;
+  grid-template-rows:
+    100px
+    1fr;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: h;
+}
+
+.filters {
+  grid-area: f;
+  padding: 0 5px 0 15px;
+}
+
+.content {
+  grid-area: c;
+  padding: 0 10px;
+}
+
+.sidebar {
+  grid-area: s;
+  padding: 0 15px 0 5px;
+}

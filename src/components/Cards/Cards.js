@@ -3,18 +3,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {formatMoney} from 'csssr-school-utils';
 import ProductItem from 'school-product-card';
-import RatingComponent from '../RatingComponent/RatingComponent';
 
-import './Cards.css';
+import RatingComponent from '../RatingComponent/RatingComponent';
+import logRenderComponent from '../../hocs/logRenderComponent';
+import style from './Cards.module.css';
 
 const Cards = ({data}) => {
 
   if (data.length > 0) {
     return (
-      <ul className="cards">
+      <ul className={style.cards}>
         {data.map((item) => {
           return (
-            <li className="cards__item" key={item.id}>
+            <li key={item.id}>
               <ProductItem
                 isInStock={item.isInStock}
                 img={item.imgUrl}
@@ -32,7 +33,7 @@ const Cards = ({data}) => {
     )
   } else {
     return (
-      <span className="cards_empty">Ничего не найдено</span>
+      <span>Ничего не найдено</span>
     )
   }
 }
@@ -46,4 +47,4 @@ Cards.defaultProps = {
   data: []
 };
 
-export default Cards;
+export default logRenderComponent(Cards);

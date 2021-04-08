@@ -1,0 +1,25 @@
+.filter_title {
+  margin: 0;
+  font-family: OpenSans, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #323c48;
+  padding-bottom: 16px;
+}
+
+.filter_row {
+  font-size: 14px;
+  font-family: OpenSans, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.filter_price {
+  width: 50%;
+}
+
+.filter_label {
+  color: #323c48;
+  font-weight: 600;
+}

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {maxBy, minBy} from 'csssr-school-utils';
-import data from './products.json';
-import MainTitle from './components/MainTitle/MainTitle';
-import Cards from './components/Cards/Cards';
-import PriceFilter from './components/PriceFilter/PriceFilter';
 
-import './index.css';
+import data from './products.json';
+import Header from './components/Header/Header';
+import Cards from './components/Cards/Cards';
+import Filter from './components/Filter/Filter';
+import style from './index.module.css';
 
 class App extends Component {
 
@@ -15,34 +15,43 @@ class App extends Component {
     this.state = {
         filteredData: data,
         minPrice: minBy(obj => obj.price, data).price,
-        maxPrice: maxBy(obj => obj.price, data).price
+        maxPrice: maxBy(obj => obj.price, data).price,
+        discount: 0,
     }
   }
 
-  changePrices = (minValue, maxValue) => {
+  handleFilter = filters => {
+    this.setState(filters, () => {
+      this.changeFilter(this.state.minPrice, this.state.maxPrice, this.state.discount);
+    })
+  };
+
+  changeFilter = (minValue, maxValue, discount) => {
     this.setState({
-      filteredData: data.filter((item) => {
-          return item.price >= minValue && item.price <= maxValue;
+      filteredData: data.filter(item => {
+        return item.price >= minValue && item.price <= maxValue * (1 - discount / 100);
       })
     });
-  }
-  
+  };
+ 
   render() {
     return (
-      <div className="App">
-        <MainTitle>Список товаров</MainTitle>
-        <div className="container">
-          <aside>
-            <PriceFilter 
-                        minPrice={this.state.minPrice}
-                        maxPrice={this.state.maxPrice} 
-                        changePrices={this.changePrices}
-                        title="Цена"/>
-          </aside>
-          <main>
-            <Cards data={this.state.filteredData} />
-          </main>
-        </div>
+      <div className={style.app}>
+        <header className={style.header}>       
+          <Header>Список товаров</Header>
+        </header>
+        <main className={style.content}>
+          <Cards data={this.state.filteredData} />
+        </main>
+        <section className={style.filters}>
+          <Filter
+            minPrice={this.state.minPrice}
+            maxPrice={this.state.maxPrice} 
+            discount={this.state.discount}
+            handleFilter={this.handleFilter}
+          />
+        </section>
+        <aside className={style.sidebar}></aside>
       </div>
     );
   }
