@@ -21,6 +21,7 @@ const InputNumber = props => {
 InputNumber.propTypes = {
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default withInputNumberValidation(logRenderComponent(InputNumber));

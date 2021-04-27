@@ -1,0 +1,13 @@
+.filter_category {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter_title {
+  margin: 20px 0;
+  font-family: OpenSans, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #323c48;
+}

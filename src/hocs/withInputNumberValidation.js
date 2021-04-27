@@ -3,27 +3,17 @@ import { toInt } from 'csssr-school-utils';
 
 export default HoccedComponent => {
   class withInputNumberValidation extends React.Component {
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        value: props.value,
-      };
-    }
 
     handleChange = event => {
       const newValue = toInt(event.target.value);
 
-      if (newValue !== this.state.value) {
-        this.setState({
-          value: newValue,
-        });
-        this.props.onChange(newValue);
+      if (newValue !== this.props.value) {
+          this.props.onChange(this.props.name, newValue);
       }
     };
 
     render() {
-      return <HoccedComponent {...this.props} value={this.state.value} onChange={this.handleChange} />;
+      return <HoccedComponent {...this.props} onChange={this.handleChange} />;
     }
   }
 

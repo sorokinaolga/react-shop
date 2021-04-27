@@ -1,56 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Название первого товара",
+    "name": "Смартфон Huawei P30 lite 4/128GB",
     "isInStock": true,
     "imgUrl": "https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg",
     "price": 12000,
     "subPriceContent": "",
-    "rating": 4
+    "rating": 4,
+    "category": "Huawei"
   },
   {
     "id": 2,
-    "name": "Название второго товара",
+    "name": "Смартфон Samsung Galaxy A32 64GB",
     "isInStock": true,
     "imgUrl": "https://cdn.pixabay.com/photo/2014/08/05/10/27/iphone-410311__340.jpg",
     "price": 15000,
     "subPriceContent": "",
-    "rating": 3
+    "rating": 3,
+    "category": "Samsung"
   },
   {
     "id": 3,
-    "name": "Название третьего товара",
+    "name": "Смартфон Apple iPhone Xr 64GB",
     "isInStock": true,
     "imgUrl": "https://cdn.pixabay.com/photo/2016/12/09/11/33/smartphone-1894723__340.jpg",
     "price": 9000,
     "subPriceContent": "",
-    "rating": 2
+    "rating": 2,
+    "category": "Apple"
   },
   {
     "id": 4,
-    "name": "Название четвертого товара",
+    "name": "Смартфон Huawei P40 lite E NFC",
     "isInStock": true,
     "imgUrl": "https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg",
     "price": 11000,
     "subPriceContent": "",
-    "rating": 5
+    "rating": 5,
+    "category": "Huawei"
   },
   {
     "id": 5,
-    "name": "Название пятого товара",
+    "name": "Смартфон Samsung Galaxy S20 FE 128GB",
     "isInStock": false,
     "imgUrl": "https://cdn.pixabay.com/photo/2015/03/26/09/41/phone-690091__340.jpg",
     "price": 17500,
     "subPriceContent": "",
-    "rating": 1
+    "rating": 1,
+    "category": "Samsung"
   },
   {
     "id": 6,
-    "name": "Название шестого товара",
+    "name": "Смартфон Apple iPhone 11 64GB",
     "isInStock": false,
-    "imgUrl": "https://cdn.pixabay.com/photo/2016/03/27/19/43/smartphone-1283938__340.jpg",
+    "imgUrl": "https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg",
     "price": 13800,
     "subPriceContent": "",
-    "rating": 3
+    "rating": 3,
+    "category": "Apple"
   }
 ]
