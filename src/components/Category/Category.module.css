@@ -1,0 +1,15 @@
+.category {
+  font-family: OpenSans, sans-serif;
+  font-size: 20px;
+  background-color: white;
+  border: solid 1px #7e8fa4;
+  border-radius: 25px;
+  padding: 5px 15px;
+  margin: 0 5px 5px 0;
+}
+
+.active_category {
+  background-color: #445468;
+  border-color: #445468;
+  color: white;
+}
