@@ -30,13 +30,14 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    const url = window.location.pathname.substr(1);
+    window.history.replaceState({ url }, '', window.location.pathname);
     this.state = {
-      filteredData: data,
       minPrice: minBy(obj => obj.price, data).price,
       maxPrice: maxBy(obj => obj.price, data).price,
       discount: 0,
       categories: categories,
-      activeCategory: '',
+      activeCategory: url,
     }
   }
 
@@ -55,8 +56,6 @@ class App extends Component {
   handleChangeInput = (name, value) => {
     this.setState({
       [name]: value,
-    }, () => {
-      this.getFilteredProducts(this.state.minPrice, this.state.maxPrice, this.state.discount, this.state.activeCategory);
     });
   };
 
@@ -67,12 +66,11 @@ class App extends Component {
     }
     products = products.filter(item => item.price >= minValue && item.price <= maxValue * (1 - discount / 100));
 
-    this.setState({filteredData: products});
+    return products;
   };
 
   handleResetInput = () => {
     this.setState({
-      filteredData: data,
       minPrice: minBy(obj => obj.price, data).price,
       maxPrice: maxBy(obj => obj.price, data).price,
       discount: 0,
@@ -83,6 +81,8 @@ class App extends Component {
   };
 
   render() {
+    const filteredData = this.getFilteredProducts(this.state.minPrice, this.state.maxPrice, this.state.discount, this.state.activeCategory);
+
     return (
       <DataContext.Provider
         value={{
@@ -100,7 +100,7 @@ class App extends Component {
             <Header>Список товаров</Header>
           </header>
           <main className={style.content}>
-            <Cards data={this.state.filteredData} />
+            <Cards data={filteredData} />
           </main>
           <section className={style.filters}>
             <Filter />
