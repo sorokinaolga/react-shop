@@ -1,7 +1,7 @@
 import React from 'react';
 import { toInt } from 'csssr-school-utils';
 
-export default HoccedComponent => {
+export default InputNumberComponent => {
   class withInputNumberValidation extends React.Component {
 
     handleChange = event => {
@@ -13,7 +13,7 @@ export default HoccedComponent => {
     };
 
     render() {
-      return <HoccedComponent {...this.props} onChange={this.handleChange} />;
+      return <InputNumberComponent {...this.props} onChange={this.handleChange} />;
     }
   }
 

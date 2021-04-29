@@ -48,27 +48,19 @@ class App extends Component {
     window.removeEventListener('popstate', this.setHistoryCategory);
   }
 
-  setHistoryCategory = () => {
-    if (window.location.pathname.length > 1) {
-      this.setState({
-        activeCategory: window.location.pathname.slice(1),
-      });
-    } else {
-      this.setState({
-        activeCategory: '',
-      });
-    }
+  setHistoryCategory = (event) => {
+    this.setState({ activeCategory: event.state['url'] });
   };
 
   handleChangeInput = (name, value) => {
     this.setState({
       [name]: value,
     }, () => {
-      this.changeFilter(this.state.minPrice, this.state.maxPrice, this.state.discount, this.state.activeCategory);
+      this.getFilteredProducts(this.state.minPrice, this.state.maxPrice, this.state.discount, this.state.activeCategory);
     });
   };
 
-  changeFilter = (minValue, maxValue, discount, category) => {
+  getFilteredProducts = (minValue, maxValue, discount, category) => {
     let products = data;
     if(category) {
       products = data.filter(item => item.category === category);
