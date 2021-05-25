@@ -13,7 +13,12 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = {
+  changeFilter,
+  resetFilter,
+};
+
 export const FilterContainer = connect(
     mapStateToProps, 
-    { changeFilter, resetFilter }
+    mapDispatchToProps
 )(Filter);

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { store } from './store';
-import { SET_CATEGORY } from './store/reducer';
+import { setCategory } from './store/reducer';
 import Header from './components/Header/Header';
 import { FilterContainer } from './containers/FilterContainer';
 import CardsContainer from './containers/CardsContainer';
@@ -21,7 +21,7 @@ class App extends Component {
 
   setHistoryCategory = () => {
     const category = window.location.pathname.substr(1);
-    store.dispatch({ type: SET_CATEGORY, payload: category });
+    setCategory(category);
   };
 
   render() {
