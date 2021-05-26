@@ -1,47 +1,37 @@
 
 import React from 'react';
 
-import { DataContext } from '../..';
 import logRenderComponent from '../../hocs/logRenderComponent';
 import InputDiscount from '../InputDiscount/InputDiscount';
 import PriceFilter from '../PriceFilter/PriceFilter';
 import Categories from '../Categories/Categories';
 import Button from '../Button/Button';
 
-class Filter extends React.Component {
+class Filter extends React.PureComponent {
+  resetButtonClickHandler = () => {
+    window.history.pushState({}, '', '/');
+    this.props.resetFilter();
+  };
 
   render() {
     return (
-      <DataContext.Consumer>
-        {({
-          maxPrice,
-          minPrice,
-          discount,
-          categories,
-          activeCategory,
-          handleChangeInput,
-          handleResetInput,
-        }) => (
-            <form>
-              <PriceFilter title="Цена" 
-                            minPrice={minPrice}
-                            maxPrice={maxPrice} 
-                            handleChangeInput={handleChangeInput} />
-              <InputDiscount title="Скидка" 
+      <form>
+        <PriceFilter title="Цена" 
+                            minPrice={this.props.minPrice}
+                            maxPrice={this.props.maxPrice} 
+                            handleChangeInput={this.props.changeFilter} />
+        <InputDiscount title="Скидка" 
                             name="discount" 
-                            value={discount} 
-                            onChange={handleChangeInput} />
-              <Categories title="Категории"
-                          categories={categories}
-                          handleChangeInput={handleChangeInput}
-                          activeCategory={activeCategory} />
-              <Button value="Сбросить фильтры" onClick={handleResetInput} />
-            </form>
-        )}  
-      </DataContext.Consumer>
-    )
+                            value={this.props.discount} 
+                            onChange={this.props.changeFilter} />
+        <Categories title="Категории"
+                          categories={this.props.categories}
+                          activeCategory={this.props.activeCategory} 
+                          handleChangeInput={this.props.changeFilter} />
+        <Button value="Сбросить фильтры" onClick={this.resetButtonClickHandler} />
+      </form>
+    )  
   }
-
 };
 
 
