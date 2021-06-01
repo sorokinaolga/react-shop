@@ -1,31 +1,32 @@
-import { initialState, store } from './index';
+import { initialState } from './index';
 
-const CHANGE_FILTER = 'junior-course-os/app/CHANGE_FILTER';
-const RESET_FILTER = 'junior-course-os/app/RESET_FILTER';
-const SET_CATEGORY = 'junior-course-os/app/SET_CATEGORY';
+import * as types from './types';
 
-export const changeFilter = (name, value) => store.dispatch({ type: CHANGE_FILTER, payload: { name: name, value: value } });
-export const resetFilter = () => store.dispatch({ type: RESET_FILTER });
-export const setCategory = (category) => store.dispatch({ type: SET_CATEGORY, payload: category });
-
-export function reducer(state, action) {
+const reducer = (state, action) => {
   switch (action.type) {
-    case CHANGE_FILTER: {
+    case types.CHANGE_FILTER: {
       return {
           ...state,
           [action.payload.name]: action.payload.value,
       };
     }
-    case RESET_FILTER: {
+    case types.RESET_FILTER: {
       return initialState;
     }
-    case SET_CATEGORY: {
+    case types.SET_CATEGORY: {
       return {
         ...state,
         activeCategory: action.payload,
       };
     }
+    case types.CHANGE_PAGE:
+      return {
+        ...state,
+        activePage: action.payload,
+    }
     default:
       return state;
   }
 }
+
+export default reducer;

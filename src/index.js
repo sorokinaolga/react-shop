@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { store } from './store';
-import { setCategory } from './store/reducer';
+import { setCategory, changePage } from './store/actions';
 import Header from './components/Header/Header';
 import { FilterContainer } from './containers/FilterContainer';
 import CardsContainer from './containers/CardsContainer';
@@ -12,16 +12,18 @@ import style from './index.module.css';
 class App extends Component {
 
   componentDidMount() {
-    window.addEventListener('popstate', this.setHistoryCategory);
+    window.addEventListener('popstate', this.setHistory);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('popstate', this.setHistoryCategory);
+    window.removeEventListener('popstate', this.setHistory);
   }
 
-  setHistoryCategory = () => {
+  setHistory = () => {
     const category = window.location.pathname.substr(1);
     setCategory(category);
+    const page = window.location.search.substr(6) || 1;
+    changePage(+page);
   };
 
   render() {
