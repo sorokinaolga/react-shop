@@ -10,7 +10,7 @@ const minPrice = minBy(obj => obj.price, data).price;
 const maxPrice = maxBy(obj => obj.price, data).price;
 const categories = getCategories(data);
 const activeCategory = window.location.pathname.substr(1);
-const activePage = 1;
+const activePage = +(window.location.search.substr(6) || 1);
 
 export const initialState = {
   minPrice,

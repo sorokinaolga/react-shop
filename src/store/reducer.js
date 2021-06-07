@@ -8,6 +8,7 @@ const reducer = (state, action) => {
       return {
           ...state,
           [action.payload.name]: action.payload.value,
+          activePage: 1,
       };
     }
     case types.RESET_FILTER: {

@@ -13,7 +13,7 @@ const Categories = (props) => {
       <h3 className={style.filter_title}>{props.title}</h3>
       <div className={style.filter_category}>
         {props.categories.map((item, index) => (
-          <Category key={index} name={item} active={props.activeCategory} onClick={props.handleChangeInput} />
+          <Category key={index} name={item} active={props.activeCategory} handleChangeInput={props.handleChangeInput} />
         ))}
       </div>
     </React.Fragment>
