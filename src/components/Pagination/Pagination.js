@@ -14,7 +14,8 @@ const Pagination = (props) => {
     <div className={style.pagination}>
       <button className={style.pagination_button} 
               onClick={() => handleButtonClick(props.activePage - 1)} 
-              disabled={props.activePage === 1 ? true : false}>
+              disabled={props.activePage === 1 ? true : false}
+              type="button">
         Назад
       </button>
 
@@ -22,7 +23,8 @@ const Pagination = (props) => {
         props.pages.map( (item, number) => (
           <button key={number} 
               className={`${style.pagination_item} ${(number+1) === props.activePage ? style.active : ''}`}
-              onClick={() => handleButtonClick(number+1)}>
+              onClick={() => handleButtonClick(number+1)}
+              type="button">
                 {number+1}
           </button>
         ))
@@ -30,7 +32,8 @@ const Pagination = (props) => {
 
       <button className={style.pagination_button} 
               onClick={() => handleButtonClick(props.activePage + 1)}
-              disabled={props.activePage < props.pages.length ? false : true}>
+              disabled={props.activePage < props.pages.length ? false : true}
+              type="button">
         Вперед
       </button>
     </div>
