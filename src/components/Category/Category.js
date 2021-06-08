@@ -6,7 +6,7 @@ import style from './Category.module.css';
 
 const Category = (props) => {
   const handleClick = () => {
-    props.onClick('activeCategory', props.name);
+    props.handleChangeInput('activeCategory', props.name);
     window.history.pushState({}, '', props.name);
   };
   return (
