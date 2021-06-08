@@ -6,7 +6,7 @@ import style from './Category.module.css';
 
 const Category = (props) => {
   const handleClick = () => {
-    props.onClick('activeCategory', props.name);
+    props.handleChangeInput('activeCategory', props.name);
     window.history.pushState({}, '', props.name);
   };
   return (
@@ -18,7 +18,7 @@ const Category = (props) => {
 
 Category.propTypes = {
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  handleChangeInput: PropTypes.func.isRequired,
 };
 
 export default logRenderComponent(Category);
