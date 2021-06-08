@@ -18,7 +18,7 @@ const Category = (props) => {
 
 Category.propTypes = {
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  handleChangeInput: PropTypes.func.isRequired,
 };
 
 export default logRenderComponent(Category);

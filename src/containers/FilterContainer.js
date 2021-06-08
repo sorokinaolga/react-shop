@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import {  changeFilter, resetFilter } from '../store/actions';
+import { changeFilter, resetFilter } from '../store/actions';
 import Filter from '../components/Filter/Filter';
 
 const mapStateToProps = (state) => {
