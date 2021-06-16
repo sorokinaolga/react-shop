@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { splitEvery } from 'csssr-school-utils';
 
-import { getFiltredProducts } from '../utils';
+import { getFiltredProducts } from '../../utils';
 
 const getProductSelector = createSelector(
   ({minPrice}) => minPrice,

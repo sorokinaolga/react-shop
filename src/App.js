@@ -1,58 +1,28 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 
-import { setCategory, changePage } from './store/actions';
-import Header from './components/Header/Header';
-import { FilterContainer } from './containers/FilterContainer';
-import CardsContainer from './containers/CardsContainer';
-import style from './index.module.css';
+import MainPage from './components/MainPage/MainPage';
+import ProductPage from './components/ProductPage/ProductPage';
+import { createdStore, history } from './store';
+
+const store = createdStore();
 
 class App extends Component {
-
-  componentDidMount() {
-    window.addEventListener('popstate', this.setHistory);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('popstate', this.setHistory);
-  }
-
-  setHistory = () => {
-    let category = window.location.pathname.substr(1);
-    this.props.setCategory(category);
-    let page = window.location.search.substr(6) || 1;
-    this.props.changePage(+page);
-  };
-
   render() {
     return (
-        <div className={style.app}>
-          <header className={style.header}>  
-            <Header>Список товаров</Header>
-          </header>
-          <main className={style.content}>
-            <CardsContainer />
-          </main>
-          <section className={style.filters}>
-            <FilterContainer />
-          </section>
-          <aside className={style.sidebar}></aside>
-        </div>
+        <Provider store={store}>
+          <ConnectedRouter history={history}>
+            <Switch>
+              <Route path="/" exact component={MainPage} />
+              <Route path="/:id" component={ProductPage} />
+            </Switch>
+          </ConnectedRouter>
+        </Provider>
     );
   }
 
 }
 
-const mapStateToProps = (state) => ({
-  state
-});
-
-const mapDispatchToProps = {
-  setCategory, 
-  changePage,
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps 
-)(App);
+export default App;

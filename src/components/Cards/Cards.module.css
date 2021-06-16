@@ -7,3 +7,7 @@
   grid-gap: 40px;
   justify-items: center;
 }
+
+.cardLink {
+  text-decoration: none;
+}

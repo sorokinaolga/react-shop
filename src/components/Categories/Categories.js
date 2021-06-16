@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,14 +8,14 @@ import style from './Categories.module.css';
 
 const Categories = (props) => {
   return (
-    <React.Fragment>
+    <>
       <h3 className={style.filter_title}>{props.title}</h3>
       <div className={style.filter_category}>
         {props.categories.map((item, index) => (
-          <Category key={index} name={item} active={props.activeCategory} handleChangeInput={props.handleChangeInput} />
+          <Category key={index} name={item} active={props.activeCategory} onClick={props.changeCategory} />
         ))}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
