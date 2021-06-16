@@ -12,7 +12,7 @@ const Categories = (props) => {
       <h3 className={style.filter_title}>{props.title}</h3>
       <div className={style.filter_category}>
         {props.categories.map((item, index) => (
-          <Category key={index} name={item} active={props.activeCategory} onClick={props.changeCategory} />
+          <Category key={index} name={item} active={props.activeCategory} />
         ))}
       </div>
     </>
