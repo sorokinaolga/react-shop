@@ -1,8 +1,8 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import {formatMoney} from 'csssr-school-utils';
 import ProductItem from 'school-product-card';
+import { Link } from 'react-router-dom';
 
 import RatingComponent from '../RatingComponent/RatingComponent';
 import logRenderComponent from '../../hocs/logRenderComponent';
@@ -14,23 +14,24 @@ const Cards = (props) => {
       {props.products.map((item) => {
         return (
           <li key={item.id}>
-            <ProductItem
-              isInStock={item.isInStock}
-              img={item.imgUrl}
-              title={item.name}
-              price={formatMoney(item.price, 0, '.', ' ')}
-              subPriceContent={item.subPriceContent}
-              maxRating={5}
-              rating={item.rating}
-              ratingComponent={RatingComponent}
-            />
+            <Link className={style.cardLink} to={`/${item.id}`}>
+              <ProductItem
+                isInStock={item.isInStock}
+                img={item.imgUrl}
+                title={item.name}
+                price={formatMoney(item.price, 0, '.', ' ')}
+                subPriceContent={item.subPriceContent}
+                maxRating={5}
+                rating={item.rating}
+                ratingComponent={RatingComponent}
+              />
+            </Link>
           </li>
         )
       })}
     </ul>
   )
 }
-
 
 Cards.propTypes = {
   products: PropTypes.array

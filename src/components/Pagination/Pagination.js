@@ -3,39 +3,40 @@ import PropTypes from 'prop-types';
 
 import logRenderComponent from '../../hocs/logRenderComponent';
 import style from './Pagination.module.css';
+import { Link } from 'react-router-dom';
 
 const Pagination = (props) => {
-  const handleButtonClick = (pageNumber) => {
-    props.handleChangePage(pageNumber);
-    window.history.pushState({}, 'page-number', `?page=${pageNumber}`);
+
+  const url = (number) => {
+    if (props.activeCategory) {
+      return `category=${props.activeCategory}&page=${number}`;
+    } else {
+      return `&page=${number}`;
+    }
   }
 
   return(
     <div className={style.pagination}>
-      <button className={style.pagination_button} 
-              onClick={() => handleButtonClick(props.activePage - 1)} 
-              disabled={props.activePage === 1 ? true : false}
-              type="button">
+      <Link className={`${style.pagination_button} ${props.activePage === 1 ? style.blocked : ''}`}
+            to={{search: url(props.activePage - 1)}}>
         Назад
-      </button>
+      </Link>
 
       {
         props.pages.map( (item, number) => (
-          <button key={number} 
+          <Link key={number} 
               className={`${style.pagination_item} ${(number+1) === props.activePage ? style.active : ''}`}
-              onClick={() => handleButtonClick(number+1)}
-              type="button">
+              to={{search: url(number + 1)}}
+          >
                 {number+1}
-          </button>
+          </Link>
         ))
       }
 
-      <button className={style.pagination_button} 
-              onClick={() => handleButtonClick(props.activePage + 1)}
-              disabled={props.activePage < props.pages.length ? false : true}
-              type="button">
+      <Link className={`${style.pagination_button} ${props.activePage < props.pages.length ? '' : style.blocked}`}
+            to={{search: url(props.activePage + 1)}}>
         Вперед
-      </button>
+      </Link>
     </div>
   )
 };
@@ -43,7 +44,7 @@ const Pagination = (props) => {
 Pagination.propTypes = {
   activePage: PropTypes.number,
   pages: PropTypes.array,
-  handleChangePage: PropTypes.func,
+  activeCategory: PropTypes.string,
 };
 
 export default logRenderComponent(Pagination);

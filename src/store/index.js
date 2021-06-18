@@ -1,24 +1,25 @@
-import { createStore } from 'redux';
-import { maxBy, minBy } from 'csssr-school-utils';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createBrowserHistory } from 'history';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
-import reducer from './reducer';
+import filtersReducer from './filters/reducer';
 
-import data from '../products.json';
-import { getCategories } from '../utils';
+export const history = createBrowserHistory();
 
-const minPrice = minBy(obj => obj.price, data).price;
-const maxPrice = maxBy(obj => obj.price, data).price;
-const categories = getCategories(data);
-const activeCategory = window.location.pathname.substr(1);
-const activePage = +(window.location.search.substr(6) || 1);
+const rootReducer = (history) =>
+  combineReducers({
+    router: connectRouter(history),
+    filters: filtersReducer,
+  });
 
-export const initialState = {
-  minPrice,
-  maxPrice,
-  discount: 0,
-  categories,
-  activeCategory,
-  activePage,
-};
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const store = createStore(reducer, initialState);
+export function createdStore(preloadedState) {
+  const store = createStore(
+    rootReducer(history),
+    preloadedState,
+    composeEnhancer(applyMiddleware(routerMiddleware(history)))
+  );
+
+  return store;
+}

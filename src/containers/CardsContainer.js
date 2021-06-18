@@ -2,19 +2,18 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 import Cards from '../components/Cards/Cards';
-import { getProductSelector } from '../store/selectors';
-import { changePage } from '../store/actions';
-import data from '../products.json';
+import { getProductSelector, getActiveCategory, getActivePage } from '../store/selectors';
 import Pagination from '../components/Pagination/Pagination';
 
 class CardsContainer extends Component {
     render() {
+      const currentPage = +this.props.activePage || 1;
       return (
         <>
-          {this.props.products.length && this.props.activePage <= this.props.products.length 
+          {this.props.products.length
           ? (<>
-            <Cards products={this.props.products[this.props.activePage - 1]} />
-            <Pagination activePage={this.props.activePage} pages={this.props.products} handleChangePage={this.props.changePage} />
+            <Cards products={this.props.products[currentPage - 1]} />
+            <Pagination activePage={currentPage} pages={this.props.products} activeCategory={this.props.activeCategory} />
           </>) 
           : (<p>Ничего не найдено</p>)}
         </>
@@ -24,22 +23,10 @@ class CardsContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: getProductSelector({
-      minPrice: state.minPrice,
-      maxPrice: state.maxPrice,
-      discount: state.discount,
-      activeCategory: state.activeCategory,
-      data,
-    }),
-    activePage: state.activePage,
+    products: getProductSelector(state),
+    activeCategory: getActiveCategory(state),
+    activePage: getActivePage(state),
   };
 };
 
-const mapDispatchToProps = {
-  changePage,
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps 
-)(CardsContainer);
+export default connect(mapStateToProps)(CardsContainer);
