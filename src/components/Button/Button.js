@@ -15,8 +15,8 @@ const Button = (props) => {
   
   Button.propTypes = {
     value: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    to: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    to: PropTypes.string,
   };
   
 export default logRenderComponent(Button);
