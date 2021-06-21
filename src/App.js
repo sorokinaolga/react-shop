@@ -1,28 +1,39 @@
 import React, {Component} from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { connect } from 'react-redux';
 
-import MainPage from './components/MainPage/MainPage';
+import { fetchProducts } from './store/products/actions';
 import Product from './containers/ProductContainer';
-import { createdStore, history } from './store';
-
-const store = createdStore();
+import { history } from './store';
+import MainContainer from './containers/MainContainer';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
+
   render() {
     return (
-        <Provider store={store}>
-          <ConnectedRouter history={history}>
-            <Switch>
-              <Route path="/" exact component={MainPage} />
-              <Route path="/:id" component={Product} />
-            </Switch>
-          </ConnectedRouter>
-        </Provider>
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Route path="/" exact component={MainContainer} />
+            <Route path="/:id" component={Product} />
+          </Switch>
+        </ConnectedRouter>
     );
   }
 
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    state,
+  }
+}
+
+const mapDispatchToProps = {
+  fetchProducts,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

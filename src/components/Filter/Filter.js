@@ -22,7 +22,7 @@ class Filter extends React.PureComponent {
                           categories={this.props.categories}
                           activeCategory={this.props.activeCategory} 
                           handleChangeInput={this.props.changeFilter} />
-        <Button value='Сбросить фильтры' path='/' handleReset={this.props.resetFilter} />
+        <Button value='Сбросить фильтры' path='/' handleReset={this.props.resetFilter} maxValuePrice={this.props.maxValuePrice} />
       </form>
     )  
   }

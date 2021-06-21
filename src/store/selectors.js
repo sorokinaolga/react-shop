@@ -9,8 +9,11 @@ const getDiscount = (state) => state.filters.discount;
 const getCategories = (state) => state.filters.categories;
 const getActiveCategory = (state) => state.router.location.query.category;
 const getActivePage = (state) => state.router.location.query.page;
-const getAllProducts = (state) => state.filters.products;
-const getProductById = (state, id) => state.filters.products.find(item => item.id === id);
+const getAllProducts = (state) => state.products.items;
+const getProductById = (state, id) => state.products.items.find(item => item.id === id);
+const getLoadingStatus = (state) => state.products.isLoading;
+const getResponseStatus = (state) => state.products.isError;
+const getMaxValuePrice = (state) => state.products.maxValuePrice;
 
 const getProductSelector = createSelector(
   getMinPrice,
@@ -25,4 +28,4 @@ const getProductSelector = createSelector(
     )
 );
 
-export { getProductSelector, getProductById, getActiveCategory, getActivePage, getMinPrice, getMaxPrice, getDiscount, getCategories };
+export { getProductSelector, getProductById, getActiveCategory, getActivePage, getMinPrice, getMaxPrice, getDiscount, getCategories, getLoadingStatus, getResponseStatus, getMaxValuePrice };

@@ -1,0 +1,21 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  align-items: center;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.content {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.header-link {
+  text-decoration: none;
+}

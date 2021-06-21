@@ -1,18 +1,10 @@
 import * as types from './types';
-import { maxBy, minBy } from 'csssr-school-utils';
-import data from '../../products.json';
-import { getCategories } from '../../utils';
-
-const minPrice = minBy(obj => obj.price, data).price;
-const maxPrice = maxBy(obj => obj.price, data).price;
-const categories = getCategories(data);
 
 const initialState = {
-  minPrice,
-  maxPrice,
+  minPrice: 0,
+  maxPrice: 0,
   discount: 0,
-  categories,
-  products: data,
+  categories: [],
 };
 
 const filtersReducer = (state = initialState, action) => {
@@ -24,7 +16,12 @@ const filtersReducer = (state = initialState, action) => {
       };
     }
     case types.RESET_FILTER: {
-      return initialState;
+      return {
+          ...state,
+          minPrice: 0,
+          maxPrice: action.payload.value,
+          discount: 0,
+      };
     }
     default:
       return state;
