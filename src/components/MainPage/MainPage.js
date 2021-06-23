@@ -11,12 +11,15 @@ import style from './MainPage.module.css';
 class MainPage extends Component {
   render() {
   const currentPage = +this.props.activePage || 1;
+  const loading = this.props.isLoading && !this.props.isError;
+  const success = !this.props.isLoading && !this.props.isError;
+  const error = this.props.isLoading && this.props.isError;
   return (
     <>
-      {this.props.isLoading && !this.props.isError && 
+      {loading && 
         <Preloader />
       }
-      {!this.props.isLoading && !this.props.isError && 
+      {success && 
         <div className={style.app}>
           <header className={style.header}>  
             <Header children={this.props.products.length > 0 ? 'Список товаров' : 'Товары не найдены'} />
@@ -44,7 +47,7 @@ class MainPage extends Component {
           <aside className={style.sidebar}></aside>
         </div>
       }
-      {this.props.isLoading && this.props.isError &&
+      {error &&
         <>
           <Header>Что-то пошло не так</Header>
           <NotFound />
