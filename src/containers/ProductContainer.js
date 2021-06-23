@@ -9,11 +9,16 @@ import NotFound from '../components/NotFound/NotFound';
 
 class Product extends Component {
   render() {
+    const loading = this.props.isLoading && !this.props.isError;
+    const error = this.props.isLoading && this.props.isError;
+    const success = !this.props.isLoading && !this.props.isError;
+    const productFound = this.props.item;
+
     return (
       <>
-        {this.props.isLoading && !this.props.isError && <Preloader />}
-        {this.props.isLoading && this.props.isError && <NotFound title='Что-то пошло не так' />}
-        {!this.props.isLoading && !this.props.isError && this.props.item &&
+        {loading && <Preloader />}
+        {error && <NotFound title='Что-то пошло не так' />}
+        {success && productFound &&
           <ProductPage 
             isInStock={this.props.item.isInStock}
             img={this.props.item.imgUrl}
@@ -24,7 +29,7 @@ class Product extends Component {
             rating={this.props.item.rating}
           />
         }
-        {!this.props.isLoading && !this.props.isError && !this.props.item && <NotFound title='Товар не найден' />}
+        {success && !productFound && <NotFound title='Товар не найден' />}
       </>
     );
   }

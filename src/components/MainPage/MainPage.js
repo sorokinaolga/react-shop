@@ -19,7 +19,7 @@ class MainPage extends Component {
       {!this.props.isLoading && !this.props.isError && 
         <div className={style.app}>
           <header className={style.header}>  
-            <Header title={ this.props.products.length > 0 ? 'Список товаров' : 'Товары не найдены' } />
+            <Header children={this.props.products.length > 0 ? 'Список товаров' : 'Товары не найдены'} />
           </header>
           <main className={style.content}>
             {this.props.products.length > 0 
@@ -46,7 +46,7 @@ class MainPage extends Component {
       }
       {this.props.isLoading && this.props.isError &&
         <>
-          <Header title='Что-то пошло не так' />
+          <Header>Что-то пошло не так</Header>
           <NotFound />
         </>
       }
