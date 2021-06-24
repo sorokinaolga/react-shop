@@ -15,7 +15,8 @@ export const getFiltredProducts = (minValue, maxValue, discount, category, data)
   if(category) {
     products = data.filter( (item) => item.category === category);
   }
-  products = products.filter( (item) => item.price >= minValue && item.price <= maxValue * (1 - discount / 100));
+  products = products.filter( (item) => item.discount >= discount );
+  products = products.filter( (item) => item.price >= minValue && item.price <= maxValue );
   
   return products;
 };

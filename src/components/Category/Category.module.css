@@ -6,9 +6,11 @@
   border-radius: 25px;
   padding: 5px 15px;
   margin: 0 5px 5px 0;
+  text-decoration: none;
+  color: #323c48;
 }
 
-.active_category {
+.active {
   background-color: #445468;
   border-color: #445468;
   color: white;

@@ -11,9 +11,11 @@
   margin: 0;
   padding: 0;
   background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.pagination_button:disabled {
+.blocked {
   pointer-events: none;
 }
 
@@ -26,6 +28,8 @@
   background-color: transparent;
   margin-left: 1px;
   margin-right: 1px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .active {

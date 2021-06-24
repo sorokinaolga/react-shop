@@ -7,3 +7,13 @@
   grid-gap: 40px;
   justify-items: center;
 }
+
+.cardLink {
+  display: block;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.cardLink:hover {
+  border: 1px solid #445468;
+}

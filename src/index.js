@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { store } from './store';
+import { createdStore } from './store';
 import App from './App';
+
+const store = createdStore();
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
