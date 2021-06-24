@@ -1,25 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import Header from '../Header/Header';
-import { FilterContainer } from '../../containers/FilterContainer';
-import CardsContainer from '../../containers/CardsContainer';
+import Filter from '../Filter/Filter';
+import NotFound from '../NotFound/NotFound';
+import Cards from '../Cards/Cards';
+import Pagination from '../Pagination/Pagination';
 import style from './MainPage.module.css';
 
-const MainPage = () => {
+class MainPage extends Component {
+  render() {
+  const currentPage = +this.props.activePage || 1;
   return (
+    <>
       <div className={style.app}>
         <header className={style.header}>  
-          <Header>Список товаров</Header>
+          <Header children={this.props.products.length > 0 ? 'Список товаров' : 'Товары не найдены'} />
         </header>
         <main className={style.content}>
-          <CardsContainer />
+          {this.props.products.length > 0 
+            ? <>
+                <Cards products={this.props.products[currentPage - 1]} />
+                <Pagination activePage={currentPage} pages={this.props.products} activeCategory={this.props.activeCategory} />
+              </>
+            : <NotFound />              
+          }
         </main>
         <section className={style.filters}>
-          <FilterContainer />
+          <Filter categories={this.props.categories}
+                  activeCategory={this.props.activeCategory} 
+                  changeFilter={this.props.changeFilter} 
+                  resetFilter={this.props.resetFilter}
+                  discount={this.props.discount} 
+                  minPrice={this.props.minPrice}
+                  maxPrice={this.props.maxPrice}
+                  maxValuePrice={this.props.maxValuePrice} 
+          />
         </section>
         <aside className={style.sidebar}></aside>
       </div>
-  );
+    </>    
+  )};
 };
 
 export default MainPage;

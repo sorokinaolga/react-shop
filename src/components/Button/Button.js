@@ -7,7 +7,7 @@ import style from './Button.module.css';
 
 const Button = (props) => {
     return (
-      <Link className={style.button} to={props.path} onClick={() => {props.handleReset()}}>
+      <Link className={style.button} to={props.path} onClick={() => {props.handleReset(props.maxValuePrice)}}>
         {props.value}
       </Link>
     );
