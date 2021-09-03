@@ -14,6 +14,7 @@ class Product extends Component {
       <>
         {productFound &&
           <ProductPage 
+            id={this.props.item.id}
             isInStock={this.props.item.isInStock}
             img={this.props.item.imgUrl}
             title={this.props.item.name}

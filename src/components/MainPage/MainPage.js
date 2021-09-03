@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Filter from '../Filter/Filter';
 import NotFound from '../NotFound/NotFound';
 import Cards from '../Cards/Cards';
+import BasketContainer from '../../containers/BasketContainer';
 import Pagination from '../Pagination/Pagination';
 import style from './MainPage.module.css';
 
@@ -33,10 +34,11 @@ class MainPage extends Component {
                   discount={this.props.discount} 
                   minPrice={this.props.minPrice}
                   maxPrice={this.props.maxPrice}
-                  maxValuePrice={this.props.maxValuePrice} 
           />
         </section>
-        <aside className={style.sidebar}></aside>
+        <aside className={style.sidebar}>
+          <BasketContainer />
+        </aside>
       </div>
     </>    
   )};

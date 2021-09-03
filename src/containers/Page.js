@@ -21,7 +21,8 @@ class Page extends Component {
         {success && 
           <Switch>
             <Route path="/" exact component={MainContainer} />
-            <Route path="/:id" component={Product} />
+            <Route path="/product/:id" component={Product} />
+            <Route component={ErrorPage} />
           </Switch>
         }
       </>

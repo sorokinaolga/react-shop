@@ -1,4 +1,6 @@
 import * as types from './types';
+import {SUCCESS_FETCH} from '../products/types';
+import { maxBy } from 'csssr-school-utils';
 
 const initialState = {
   minPrice: 0,
@@ -9,6 +11,12 @@ const initialState = {
 
 const filtersReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SUCCESS_FETCH: {
+      return {
+        ...state,
+        maxValuePrice: maxBy(obj => obj.price, action.payload).price,
+      };
+    }
     case types.CHANGE_FILTER: {
       return {
           ...state,
@@ -19,7 +27,8 @@ const filtersReducer = (state = initialState, action) => {
       return {
           ...state,
           minPrice: 0,
-          maxPrice: action.payload.value,
+          // maxPrice: action.payload.value,
+          maxPrice: state.maxValuePrice,
           discount: 0,
       };
     }

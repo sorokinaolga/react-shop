@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import style from './ProductPage.module.css';
 import RatingComponent from '../RatingComponent/RatingComponent';
+import ButtonAdd from '../../containers/ButtonAdd';
 
 const ProductPage = (props) => {
     const range = to => [...Array(to).keys()].map(i => i + 1);
@@ -32,6 +33,7 @@ const ProductPage = (props) => {
                 <div className={style.goodsPrise}>
                     {props.price}{props.subPriceContent}
                 </div>
+                <ButtonAdd id={props.id} />
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import ProductItem from 'school-product-card';
 import { Link } from 'react-router-dom';
 
 import RatingComponent from '../RatingComponent/RatingComponent';
+import ButtonAdd from '../../containers/ButtonAdd';
 import logRenderComponent from '../../hocs/logRenderComponent';
 import style from './Cards.module.css';
 
@@ -14,7 +15,7 @@ const Cards = (props) => {
       {props.products.map((item) => {
         return (
           <li key={item.id}>
-            <Link className={style.cardLink} to={`/${item.id}`}>
+            <Link className={style.cardLink} to={`/product/${item.id}`}>
               <ProductItem
                 isInStock={item.isInStock}
                 img={item.imgUrl}
@@ -26,6 +27,7 @@ const Cards = (props) => {
                 ratingComponent={RatingComponent}
               />
             </Link>
+            <ButtonAdd id={item.id} />
           </li>
         )
       })}
