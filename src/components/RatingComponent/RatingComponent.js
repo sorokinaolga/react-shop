@@ -5,7 +5,9 @@ import style from './RatingComponent.module.css';
 
 class RatingComponent extends Component {
   render() {
-    return <div className={style.star + ' ' + (this.props.isFilled ? style.star_fill : '')} />;
+    const { isFilled } = this.props;
+
+    return <div className={style.star + ' ' + (isFilled ? style.star_fill : '')} />;
   }
 };
 

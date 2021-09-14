@@ -10,37 +10,40 @@ import style from './MainPage.module.css';
 
 class MainPage extends Component {
   render() {
-  const currentPage = +this.props.activePage || 1;
-  return (
-    <>
-      <div className={style.app}>
-        <header className={style.header}>  
-          <Header children={this.props.products.length > 0 ? 'Список товаров' : 'Товары не найдены'} />
-        </header>
-        <main className={style.content}>
-          {this.props.products.length > 0 
-            ? <>
-                <Cards products={this.props.products[currentPage - 1]} />
-                <Pagination activePage={currentPage} pages={this.props.products} activeCategory={this.props.activeCategory} />
-              </>
-            : <NotFound />              
-          }
-        </main>
-        <section className={style.filters}>
-          <Filter categories={this.props.categories}
-                  activeCategory={this.props.activeCategory} 
-                  changeFilter={this.props.changeFilter} 
-                  resetFilter={this.props.resetFilter}
-                  discount={this.props.discount} 
-                  minPrice={this.props.minPrice}
-                  maxPrice={this.props.maxPrice}
-          />
-        </section>
-        <aside className={style.sidebar}>
-          <BasketContainer />
-        </aside>
-      </div>
-    </>    
+    const { activePage, products, activeCategory, categories, changeFilter, resetFilter, discount, minPrice, maxPrice } = this.props;
+      
+    const currentPage = +activePage || 1;
+
+    return (
+      <>
+        <div className={style.app}>
+          <header className={style.header}>  
+            <Header children={products.length > 0 ? 'Список товаров' : 'Товары не найдены'} />
+          </header>
+          <main className={style.content}>
+            {products.length > 0 
+              ? <>
+                  <Cards products={products[currentPage - 1]} />
+                  <Pagination activePage={currentPage} pages={products} activeCategory={activeCategory} />
+                </>
+              : <NotFound />              
+            }
+          </main>
+          <section className={style.filters}>
+            <Filter categories={categories}
+                    activeCategory={activeCategory} 
+                    changeFilter={changeFilter} 
+                    resetFilter={resetFilter}
+                    discount={discount} 
+                    minPrice={minPrice}
+                    maxPrice={maxPrice}
+            />
+          </section>
+          <aside className={style.sidebar}>
+            <BasketContainer />
+          </aside>
+        </div>
+      </>    
   )};
 };
 

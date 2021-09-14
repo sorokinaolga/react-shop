@@ -8,21 +8,23 @@ import Button from '../Button/Button';
 
 class Filter extends React.PureComponent { 
   render() {
+    const { minPrice, maxPrice, changeFilter, discount, categories, activeCategory, resetFilter } = this.props;
+
     return (
       <form>
         <PriceFilter title='Цена' 
-                            minPrice={this.props.minPrice}
-                            maxPrice={this.props.maxPrice} 
-                            handleChangeInput={this.props.changeFilter} />
+                            minPrice={minPrice}
+                            maxPrice={maxPrice} 
+                            handleChangeInput={changeFilter} />
         <InputDiscount title='Скидка' 
                             name="discount" 
-                            value={this.props.discount} 
-                            onChange={this.props.changeFilter} />
+                            value={discount} 
+                            onChange={changeFilter} />
         <Categories title='Категории'
-                          categories={this.props.categories}
-                          activeCategory={this.props.activeCategory} 
-                          handleChangeInput={this.props.changeFilter} />
-        <Button value='Сбросить фильтры' path='/' onClick={this.props.resetFilter} />
+                          categories={categories}
+                          activeCategory={activeCategory} 
+                          handleChangeInput={changeFilter} />
+        <Button value='Сбросить фильтры' path='/' onClick={resetFilter} />
       </form>
     )  
   }

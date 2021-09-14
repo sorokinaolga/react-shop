@@ -6,10 +6,11 @@ import style from './Pagination.module.css';
 import { Link } from 'react-router-dom';
 
 const Pagination = (props) => {
+  const { activeCategory, activePage, pages } = props;
 
   const url = (number) => {
-    if (props.activeCategory) {
-      return `category=${props.activeCategory}&page=${number}`;
+    if (activeCategory) {
+      return `category=${activeCategory}&page=${number}`;
     } else {
       return `&page=${number}`;
     }
@@ -17,24 +18,24 @@ const Pagination = (props) => {
 
   return(
     <div className={style.pagination}>
-      <Link className={`${style.pagination_button} ${props.activePage === 1 ? style.blocked : ''}`}
-            to={{search: url(props.activePage - 1)}}>
+      <Link className={`${style.pagination_button} ${activePage === 1 ? style.blocked : ''}`}
+            to={{search: url(activePage - 1)}}>
         Назад
       </Link>
 
       {
-        props.pages.map( (item, number) => (
+        pages.map( (item, number) => (
           <Link key={number} 
-              className={`${style.pagination_item} ${(number+1) === props.activePage ? style.active : ''}`}
+              className={`${style.pagination_item} ${(number+1) === activePage ? style.active : ''}`}
               to={{search: url(number + 1)}}
           >
-                {number+1}
+            {number+1}
           </Link>
         ))
       }
 
-      <Link className={`${style.pagination_button} ${props.activePage < props.pages.length ? '' : style.blocked}`}
-            to={{search: url(props.activePage + 1)}}>
+      <Link className={`${style.pagination_button} ${activePage < pages.length ? '' : style.blocked}`}
+            to={{search: url(activePage + 1)}}>
         Вперед
       </Link>
     </div>

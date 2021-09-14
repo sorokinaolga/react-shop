@@ -6,34 +6,37 @@ import RatingComponent from '../RatingComponent/RatingComponent';
 import ButtonAdd from '../../containers/ButtonAdd';
 
 const ProductPage = (props) => {
+    const { isInStock, title, img, maxRating, rating, price, subPriceContent, id } = props;
+
     const range = to => [...Array(to).keys()].map(i => i + 1);
+
     return (
-        <div className={`${style.goods} ${!props.isInStock && style.goodsNone}`}>
+        <div className={`${style.goods} ${!isInStock && style.goodsNone}`}>
             <div className={style.titleContainer}>
                 <Link className={style.link} to="/">&#8592;</Link>
-                <h1 className={style.title}>{props.title}</h1>
+                <h1 className={style.title}>{title}</h1>
             </div>
             <div className={style.imgContainer}>
-                <div className={`${style.goodsType} ${!props.isInStock && style.goodsTypeNone}`}>
-                    {props.isInStock ? 'В наличии' : 'Недоступен'}
+                <div className={`${style.goodsType} ${!isInStock && style.goodsTypeNone}`}>
+                    {isInStock ? 'В наличии' : 'Недоступен'}
                 </div>
                 <img
-                    className={`${style.goodsImg} ${!props.isInStock && style.goodsImgNone}`}
-                    src={props.img}
-                    alt={props.title}
+                    className={`${style.goodsImg} ${!isInStock && style.goodsImgNone}`}
+                    src={img}
+                    alt={title}
                     width="224"
                     height="200"
                 />
             </div>
             <div className={style.descriptionContainer}>
-                <p className={style.goodsName}>{props.title}</p>
+                <p className={style.goodsName}>{title}</p>
                 <div>
-                    {range(props.maxRating).map(i => React.createElement(RatingComponent, { key: i, isFilled:  i <= props.rating }))}
+                    {range(maxRating).map(i => React.createElement(RatingComponent, { key: i, isFilled:  i <= rating }))}
                 </div>
                 <div className={style.goodsPrise}>
-                    {props.price}{props.subPriceContent}
+                    {price}{subPriceContent}
                 </div>
-                <ButtonAdd id={props.id} />
+                <ButtonAdd id={id} />
             </div>
         </div>
     );

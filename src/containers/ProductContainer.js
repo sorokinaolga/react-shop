@@ -8,20 +8,20 @@ import NotFound from '../components/NotFound/NotFound';
 
 class Product extends Component {
   render() {
-    const productFound = this.props.item;
+    const { productFound, id, isInStock, imgUrl, name, price, subPriceContent, rating } = this.props.item;
 
     return (
       <>
         {productFound &&
           <ProductPage 
-            id={this.props.item.id}
-            isInStock={this.props.item.isInStock}
-            img={this.props.item.imgUrl}
-            title={this.props.item.name}
-            price={formatMoney(this.props.item.price, 0, '.', ' ')}
-            subPriceContent={this.props.item.subPriceContent}
+            id={id}
+            isInStock={isInStock}
+            img={imgUrl}
+            title={name}
+            price={formatMoney(price, 0, '.', ' ')}
+            subPriceContent={subPriceContent}
             maxRating={5}
-            rating={this.props.item.rating}
+            rating={rating}
           />
         }
         {!productFound && <NotFound title='Товар не найден' />}

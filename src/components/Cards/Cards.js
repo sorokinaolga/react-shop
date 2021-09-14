@@ -10,9 +10,11 @@ import logRenderComponent from '../../hocs/logRenderComponent';
 import style from './Cards.module.css';
 
 const Cards = (props) => {
+  const { products } = props;
+  
   return (
     <ul className={style.cards}>
-      {props.products.map((item) => {
+      {products.map((item) => {
         return (
           <li key={item.id}>
             <Link className={style.cardLink} to={`/product/${item.id}`}>

@@ -10,9 +10,11 @@ import ErrorPage from '../components/ErrorPage/ErrorPage';
 
 class Page extends Component {
   render() {
-    const loading = this.props.isLoading && !this.props.isError;
-    const error = this.props.isLoading && this.props.isError;
-    const success = !this.props.isLoading && !this.props.isError;
+    const { isLoading, isError} = this.props;
+
+    const loading = isLoading && !isError;
+    const error = isLoading && isError;
+    const success = !isLoading && !isError;
 
     return (
       <>

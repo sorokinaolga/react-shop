@@ -5,18 +5,20 @@ import Button from '../components/Button/Button';
 import { toggleToBasket } from '../store/basket/actions';
 
 const ButtonAdd = (props) => {
-  const added = props.items.find(item => item === props.id);
+  const { items, id, toggleToBasket, isError, isLoading } = props;
+
+  const added = items.find(item => item === id);
 
   const handleClick = () => {
     if (added) {
-      props.toggleToBasket(props.items.filter(item => item !== props.id));
+      toggleToBasket(items.filter(item => item !== id));
     } else {
-      props.toggleToBasket([...props.items, props.id]);
+      toggleToBasket([...items, id]);
     }
   };
 
   const value = added ? 'Убрать' : 'Добавить';
-  const disabled = props.isError || props.isLoading;
+  const disabled = isError || isLoading;
 
   return <Button value={value} onClick={handleClick} disabled={disabled} />;
 };

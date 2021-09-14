@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import style from './NotFound.module.css';
 
 const NotFound = (props) => {
+    const { title } = props;
+
     return (
         <>
-            <div className={`${style.header} ${!props.title && style.hidden}`}>
+            <div className={`${style.header} ${!title && style.hidden}`}>
                 <Link className={style['header-link']} to="/">&#8592;</Link>
-                <h1 className={style['header-title']}>{props.title}</h1>
+                <h1 className={style['header-title']}>{title}</h1>
             </div>
             <div className={style.content}>
                 <svg id="_x31__x2C_5" enableBackground="new 0 0 24 24" height="300" viewBox="0 0 24 24" width="300" xmlns="http://www.w3.org/2000/svg">

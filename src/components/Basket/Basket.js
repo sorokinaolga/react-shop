@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Basket = (props) => {
+  const { count, isSuccess, children, error } = props;
+  
   return (
     <div>
       <div>
-        Корзина {props.count || 0}
-        {props.isSuccess && <span>&#10004;</span>}
+        Корзина {count || 0}
+        {isSuccess && <span>&#10004;</span>}
       </div>
-      <div>{props.children}</div>
+      <div>{children}</div>
       <Link to="/cart">
         Перейти в корзину
       </Link>
-      {props.error && (
+      {error && (
         <div>
           <strong>Не удалось сохранить корзину:</strong> {props.error}
         </div>
