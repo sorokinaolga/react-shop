@@ -18,7 +18,7 @@ const Pagination = (props) => {
 
   return(
     <div className={style.pagination}>
-      <Link className={`${style.pagination_button} ${activePage === 1 ? style.blocked : ''}`}
+      <Link className={`${style.pagination_link} ${style.pagination_button} ${activePage === 1 ? style.blocked : ''}`}
             to={{search: url(activePage - 1)}}>
         Назад
       </Link>
@@ -26,7 +26,7 @@ const Pagination = (props) => {
       {
         pages.map( (item, number) => (
           <Link key={number} 
-              className={`${style.pagination_item} ${(number+1) === activePage ? style.active : ''}`}
+              className={`${style.pagination_link} ${style.pagination_item} ${(number+1) === activePage ? style.active : ''}`}
               to={{search: url(number + 1)}}
           >
             {number+1}
@@ -34,7 +34,7 @@ const Pagination = (props) => {
         ))
       }
 
-      <Link className={`${style.pagination_button} ${activePage < pages.length ? '' : style.blocked}`}
+      <Link className={`${style.pagination_link} ${style.pagination_button} ${activePage < pages.length ? '' : style.blocked}`}
             to={{search: url(activePage + 1)}}>
         Вперед
       </Link>

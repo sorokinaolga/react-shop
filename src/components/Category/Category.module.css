@@ -1,7 +1,7 @@
 .category {
   font-family: OpenSans, sans-serif;
-  font-size: 20px;
-  background-color: white;
+  font-size: 16px;
+  background-color: #fff;
   border: solid 1px #7e8fa4;
   border-radius: 25px;
   padding: 5px 15px;
@@ -10,8 +10,9 @@
   color: #323c48;
 }
 
+.category:hover,
 .active {
   background-color: #445468;
   border-color: #445468;
-  color: white;
+  color: #fff;
 }

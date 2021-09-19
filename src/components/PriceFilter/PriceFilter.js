@@ -12,12 +12,12 @@ class PriceFilter extends React.Component {
       <>
         <h3 className={style.filter_title}>{title}</h3>
         <div className={style.filter_row}>
-          <div className={style.filter_price}>
-            <label className={style.filter_label} htmlFor="from">от</label>
+          <div>
+            <label className={style.filter_label} htmlFor="from">от </label>
             <InputNumber name="minPrice" value={minPrice} onChange={handleChangeInput} />
           </div>
-          <div className={style.filter_price}>
-            <label className={style.filter_label} htmlFor="to">до</label>
+          <div>
+            <label className={style.filter_label} htmlFor="to">до </label>
             <InputNumber name="maxPrice" value={maxPrice} onChange={handleChangeInput} />
           </div>
         </div>
