@@ -13,6 +13,7 @@ const basketReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload,
+        isSave: false,
       };
     }
 

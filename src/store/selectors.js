@@ -28,4 +28,15 @@ const getProductSelector = createSelector(
     )
 );
 
-export { getProductSelector, getProductById, getActiveCategory, getActivePage, getMinPrice, getMaxPrice, getDiscount, getCategories, getLoadingStatus, getResponseStatus, getMaxValuePrice };
+export { getProductSelector, 
+        getProductById, 
+        getActiveCategory, 
+        getActivePage, 
+        getMinPrice, 
+        getMaxPrice, 
+        getDiscount, 
+        getCategories, 
+        getLoadingStatus, 
+        getResponseStatus, 
+        getMaxValuePrice
+      };

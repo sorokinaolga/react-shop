@@ -9,7 +9,8 @@ const ButtonAdd = (props) => {
 
   const added = items.find(item => item === id);
 
-  const handleClick = () => {
+  const handleClick = (evt) => {
+    evt.preventDefault();
     if (added) {
       toggleToBasket(items.filter(item => item !== id));
     } else {

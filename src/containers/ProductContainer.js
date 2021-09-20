@@ -8,11 +8,11 @@ import NotFound from '../components/NotFound/NotFound';
 
 class Product extends Component {
   render() {
-    const { productFound, id, isInStock, imgUrl, name, price, subPriceContent, rating } = this.props.item;
+    const { id, isInStock, imgUrl, name, price, subPriceContent, rating } = this.props.item;
 
     return (
       <>
-        {productFound &&
+        {this.props.item &&
           <ProductPage 
             id={id}
             isInStock={isInStock}
@@ -24,7 +24,7 @@ class Product extends Component {
             rating={rating}
           />
         }
-        {!productFound && <NotFound title='Товар не найден' />}
+        {!this.props.item && <NotFound title='Товар не найден' />}
       </>
     );
   }

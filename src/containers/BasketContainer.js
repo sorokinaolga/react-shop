@@ -10,14 +10,20 @@ const BasketContainer = (props) => {
 
   const disabled = isError || isLoading || !items.length;
 
-  const handleClick = () => {
+  const handleClickSave = (evt) => {
+    evt.preventDefault();
     postBasket(items);
+  };
+
+  const handleClickClear = (evt) => {
+    evt.preventDefault();
+    clearBasket();
   };
 
   return (
     <Basket count={items.length} isSuccess={isSave} error={isError}>
-      {!isSave && <Button value="Сохранить корзину" onClick={handleClick} disabled={disabled} /> }
-      {isSave && <Button value="Очистить корзину" onClick={clearBasket} disabled={disabled} /> }
+      {!isSave && <Button value="Сохранить корзину" onClick={handleClickSave} disabled={disabled} /> }
+      {isSave && <Button value="Очистить корзину" onClick={handleClickClear} disabled={disabled} /> }
     </Basket>
   );
 };
