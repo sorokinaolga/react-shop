@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import style from './ProductPage.module.css';
 import RatingComponent from '../RatingComponent/RatingComponent';
+import Header from '../Header/Header';
 import ButtonAdd from '../../containers/ButtonAdd';
 
 const ProductPage = (props) => {
@@ -11,11 +12,13 @@ const ProductPage = (props) => {
     const range = to => [...Array(to).keys()].map(i => i + 1);
 
     return (
-        <div className={`${style.goods} ${!isInStock && style.goodsNone}`}>
-            <div className={style.titleContainer}>
-                <Link className={style.link} to="/">&#8592;</Link>
-                <h1 className={style.title}>{title}</h1>
-            </div>
+        <div className={style.goods}>
+            <header className={style.titleContainer}>
+                <Header>
+                    <Link className={style.link} to="/">&#8592;</Link>
+                    {title}
+                </Header>
+            </header>
             <div className={style.imgContainer}>
                 <div className={`${style.goodsType} ${!isInStock && style.goodsTypeNone}`}>
                     {isInStock ? 'В наличии' : 'Недоступен'}

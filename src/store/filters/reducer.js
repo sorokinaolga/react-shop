@@ -27,7 +27,6 @@ const filtersReducer = (state = initialState, action) => {
       return {
           ...state,
           minPrice: 0,
-          // maxPrice: action.payload.value,
           maxPrice: state.maxValuePrice,
           discount: 0,
       };

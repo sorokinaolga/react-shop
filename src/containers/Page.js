@@ -24,7 +24,7 @@ class Page extends Component {
           <Switch>
             <Route path="/" exact component={MainContainer} />
             <Route path="/product/:id" component={Product} />
-            <Route component={ErrorPage} />
+            <Route render={() => <ErrorPage title='Что-то пошло не так' />} />
           </Switch>
         }
       </>

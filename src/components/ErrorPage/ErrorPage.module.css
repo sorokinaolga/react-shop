@@ -1,4 +1,28 @@
-.container {
-  width: 800px;
-  margin: 10px auto;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-areas:
+    "h"
+    "c";
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    100px
+    1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.header {
+  grid-area: h;
+}
+
+.content {
+  grid-area: c;
+  margin: 0 auto;
 }
