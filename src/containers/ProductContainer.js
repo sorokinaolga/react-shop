@@ -9,23 +9,23 @@ import imgProduct from '../img/product.jpg';
 
 class Product extends Component {
   render() {
-    const { id, status, name, price, subPriceContent, stars } = this.props.item;
+    const productFound = this.props.item;
 
     return (
       <>
-        {this.props.item &&
+        {productFound &&
           <ProductPage 
-            id={id}
-            isInStock={status === 'IN_STOCK'}
+            id={this.props.item.id}
+            isInStock={this.props.item.status === 'IN_STOCK'}
             img={imgProduct}
-            title={name}
-            price={formatMoney(price, 0, '.', ' ')}
-            subPriceContent={subPriceContent}
+            title={this.props.item.name}
+            price={formatMoney(this.props.item.price, 0, '.', ' ')}
+            subPriceContent={this.props.item.subPriceContent}
             maxRating={5}
-            rating={stars}
+            rating={this.props.item.stars}
           />
         }
-        {!this.props.item && <NotFound title='Товар не найден' />}
+        {!productFound && <NotFound title='Товар не найден' />}
       </>
     );
   }

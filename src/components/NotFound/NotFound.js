@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import style from './NotFound.module.css';
-import Header from '../Header/Header';
 
 const NotFound = (props) => {
     const { title } = props;
@@ -11,10 +10,10 @@ const NotFound = (props) => {
     return (
         <div className={style.app}>
             <header className={style.header}>  
-                <Header>
+                <h1>
                     <Link className={style.link} to="/">&#8592;</Link>
                     {title}
-                </Header>
+                </h1>
             </header>
             <main className={style.content}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">

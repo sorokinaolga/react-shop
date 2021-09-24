@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import style from './ProductPage.module.css';
 import RatingComponent from '../RatingComponent/RatingComponent';
-import Header from '../Header/Header';
 import ButtonAdd from '../../containers/ButtonAdd';
 
 const ProductPage = (props) => {
@@ -14,10 +13,10 @@ const ProductPage = (props) => {
     return (
         <div className={style.goods}>
             <header className={style.titleContainer}>
-                <Header>
+                <h1>
                     <Link className={style.link} to="/">&#8592;</Link>
                     {title}
-                </Header>
+                </h1>
             </header>
             <div className={style.imgContainer}>
                 <div className={`${style.goodsType} ${!isInStock && style.goodsTypeNone}`}>

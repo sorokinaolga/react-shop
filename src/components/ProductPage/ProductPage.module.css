@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+h1 {
+  font-weight: 400;
+}
+
 .goods {
   display: grid;
   grid-template-areas:
@@ -19,6 +23,7 @@ body {
 
 .titleContainer {
   grid-area: title;
+  text-align: center;
 }
 
 .link {
