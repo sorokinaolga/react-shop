@@ -5,27 +5,32 @@ import ProductItem from 'school-product-card';
 import { Link } from 'react-router-dom';
 
 import RatingComponent from '../RatingComponent/RatingComponent';
+import ButtonAdd from '../../containers/ButtonAdd';
 import logRenderComponent from '../../hocs/logRenderComponent';
 import style from './Cards.module.css';
+import imgProduct from '../../img/product.jpg';
 
 const Cards = (props) => {
+  const { products } = props;
+  
   return (
     <ul className={style.cards}>
-      {props.products.map((item) => {
+      {products.map((item) => {
         return (
           <li key={item.id}>
-            <Link className={style.cardLink} to={`/${item.id}`}>
+            <Link className={style.cardLink} to={`/product/${item.id}`}>
               <ProductItem
-                isInStock={item.isInStock}
-                img={item.imgUrl}
+                isInStock={item.status === 'IN_STOCK'}
+                img={imgProduct}
                 title={item.name}
                 price={formatMoney(item.price, 0, '.', ' ')}
                 subPriceContent={item.subPriceContent}
                 maxRating={5}
-                rating={item.rating}
+                rating={item.stars}
                 ratingComponent={RatingComponent}
               />
             </Link>
+            <ButtonAdd id={item.id} />
           </li>
         )
       })}

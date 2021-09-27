@@ -5,6 +5,7 @@ import {formatMoney} from 'csssr-school-utils';
 import { getProductById } from '../store/selectors';
 import ProductPage from '../components/ProductPage/ProductPage';
 import NotFound from '../components/NotFound/NotFound';
+import imgProduct from '../img/product.jpg';
 
 class Product extends Component {
   render() {
@@ -14,13 +15,14 @@ class Product extends Component {
       <>
         {productFound &&
           <ProductPage 
-            isInStock={this.props.item.isInStock}
-            img={this.props.item.imgUrl}
+            id={this.props.item.id}
+            isInStock={this.props.item.status === 'IN_STOCK'}
+            img={imgProduct}
             title={this.props.item.name}
             price={formatMoney(this.props.item.price, 0, '.', ' ')}
             subPriceContent={this.props.item.subPriceContent}
             maxRating={5}
-            rating={this.props.item.rating}
+            rating={this.props.item.stars}
           />
         }
         {!productFound && <NotFound title='Товар не найден' />}

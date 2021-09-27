@@ -1,21 +1,34 @@
-.header {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
   display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 20px;
-  align-items: center;
-  width: 700px;
+  grid-template-areas:
+    "h"
+    "c";
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    100px
+    1fr;
+  max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.header {
+  grid-area: h;
 }
 
 .content {
-  width: 700px;
+  grid-area: c;
   margin: 0 auto;
 }
 
-.hidden {
-  display: none;
-}
-
-.header-link {
+.link {
   text-decoration: none;
+  color: #000;
+  margin-right: 15px;
 }

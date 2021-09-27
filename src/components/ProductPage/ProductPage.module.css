@@ -1,24 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 400;
+}
+
 .goods {
-  font-family: OpenSans, sans-serif;
-  color: #323c48;
-  text-decoration: none;
-  position: relative;
-  width: 600px;
   display: grid;
   grid-template-areas:
     "title title"
     "img description";
   grid-template-columns: 230px 1fr;
+  grid-template-rows:
+    100px
+    1fr;
   grid-gap: 20px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .titleContainer {
   grid-area: title;
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  align-items: center;
-  gap: 20px;
+  text-align: center;
+}
+
+.link {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #000;
 }
 
 .imgContainer {
@@ -30,13 +41,8 @@
   grid-area: description;
 }
 
-.title,
 .goodsNone {
   color: #7e8fa4;
-}
-
-.link {
-  text-decoration: none;
 }
 
 .goodsType {
