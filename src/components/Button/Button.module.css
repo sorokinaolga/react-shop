@@ -1,7 +1,8 @@
 .button {
   display: block;
   font-family: OpenSans, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: white;
   border: solid 1px #7e8fa4;
   color: #323c48;
@@ -16,4 +17,11 @@
   background-color: #445468;
   border-color: #445468;
   color: white;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: #f5f6fa;
+  border-color: #f5f6fa;
+  color: #7e8fa4;
 }

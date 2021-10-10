@@ -4,16 +4,15 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  grid-gap: 40px;
+  grid-gap: 10px;
   justify-items: center;
 }
 
 .cardLink {
   display: block;
   text-decoration: none;
-  border: 1px solid transparent;
 }
 
 .cardLink:hover {
-  border: 1px solid #445468;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }

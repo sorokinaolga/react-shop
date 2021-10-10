@@ -6,17 +6,20 @@ import logRenderComponent from '../../hocs/logRenderComponent';
 import style from './Button.module.css';
 
 const Button = (props) => {
-    return (
-      <Link className={style.button} to={props.path} onClick={() => {props.handleReset(props.maxValuePrice)}}>
-        {props.value}
-      </Link>
-    );
-  };
+  const { disabled, path, onClick, value } = props;
   
-  Button.propTypes = {
-    value: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    to: PropTypes.string,
-  };
+  return (
+    <Link className={`${style.button} ${disabled && style.disabled}`} to={path} onClick={onClick} >
+      {value}
+    </Link>
+  );
+};
+
+Button.propTypes = {
+  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  to: PropTypes.string,
+  disabled: PropTypes.bool,
+};
   
 export default logRenderComponent(Button);

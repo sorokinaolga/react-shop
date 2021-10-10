@@ -1,5 +1,4 @@
 import * as types from './types';
-import { maxBy } from 'csssr-school-utils';
 
 const initialState = {
   items: [],
@@ -13,7 +12,6 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload,
-        maxValuePrice: maxBy(obj => obj.price, action.payload).price,
         isLoading: false,
         isError: false,
       };

@@ -6,14 +6,16 @@ import withInputNumberValidation from '../../hocs/withInputNumberValidation';
 import logRenderComponent from '../../hocs/logRenderComponent';
 import style from './InputNumber.module.css';
 
-const InputNumber = props => {
+const InputNumber = (props) => {
+  const { name, value, onChange } = props;
+
   return (
     <input
       className={style.filter_input}
       type="text"
-      name={props.name}
-      value={props.value}
-      onChange={props.onChange}
+      name={name}
+      value={value}
+      onChange={onChange}
     />
   );
 };
