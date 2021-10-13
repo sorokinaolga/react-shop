@@ -5,7 +5,7 @@ import Cards from '../Cards/Cards';
 import CartSidebarContainer from '../../containers/CartSidebarContainer';
 import style from './CartPage.module.css';
 
-class MainPage extends Component {
+class CartPage extends Component {
   render() {
     const { products, cartProductsId } = this.props;
 
@@ -34,4 +34,4 @@ class MainPage extends Component {
   )};
 };
 
-export default MainPage;
+export default CartPage;
