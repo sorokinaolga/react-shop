@@ -10,7 +10,8 @@ const getCategories = (state) => state.filters.categories;
 const getActiveCategory = (state) => state.router.location.query.category;
 const getActivePage = (state) => state.router.location.query.page;
 const getAllProducts = (state) => state.products.items;
-const getProductById = (state, id) => state.products.items.find(item => item.id === id);
+const getProductById = (state, id) => state.products.items.find((item) => item.id === id);
+const getProductsById = (state, id) => state.products.items.filter((item) => id.includes(item.id));
 const getLoadingStatus = (state) => state.products.isLoading;
 const getResponseStatus = (state) => state.products.isError;
 const getMaxValuePrice = (state) => state.products.maxValuePrice;
@@ -38,5 +39,6 @@ export { getProductSelector,
         getCategories, 
         getLoadingStatus, 
         getResponseStatus, 
-        getMaxValuePrice
+        getMaxValuePrice,
+        getProductsById
       };

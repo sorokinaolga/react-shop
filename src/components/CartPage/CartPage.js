@@ -7,10 +7,8 @@ import style from './CartPage.module.css';
 
 class CartPage extends Component {
   render() {
-    const { products, cartProductsId } = this.props;
-
-    const cartProducts = products.filter((item) => cartProductsId.includes(item.id));
-
+    const { cartProducts } = this.props;
+    
     return (
       <div className={style.app}>
         <header className={style.header}>
