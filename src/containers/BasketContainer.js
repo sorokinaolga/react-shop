@@ -8,7 +8,7 @@ import { clearBasket, postBasket } from '../store/basket/actions';
 const BasketContainer = (props) => {
   const { items, clearBasket, postBasket, isSave, isError, isLoading } = props;
 
-  const disabled = isError || isLoading || !items.length;
+  const disabled = isLoading || !items.length;
 
   const handleClickSave = (evt) => {
     evt.preventDefault();
