@@ -43,6 +43,7 @@ const basketReducer = (state = initialState, action) => {
     case types.ERROR_BASKET: {
       return {
         ...state,
+        isLoading: false,
         isError: action.payload,
       };
     }

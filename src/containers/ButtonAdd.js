@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Button from '../components/Button/Button';
 import { toggleToBasket } from '../store/basket/actions';
 
-const ButtonAdd = (props) => {
-  const { items, id, toggleToBasket, isError, isLoading } = props;
+const ButtonAdd = props => {
+  const { items, id, toggleToBasket, isLoading } = props;
 
   const added = items.find(item => item === id);
 
@@ -19,7 +19,7 @@ const ButtonAdd = (props) => {
   };
 
   const value = added ? 'Убрать' : 'Добавить';
-  const disabled = isError || isLoading;
+  const disabled = isLoading;
 
   return <Button value={value} onClick={handleClick} disabled={disabled} />;
 };
@@ -27,14 +27,13 @@ const ButtonAdd = (props) => {
 const mapStateToprops = (state) => {
   return {
     items: state.basket.items,
-    isError: state.basket.isError,
-    isLoading: state.basket.isLoading,
+    isLoading: state.basket.isLoading
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleToBasket: value => dispatch(toggleToBasket(value)),
+    toggleToBasket: value => dispatch(toggleToBasket(value))
   };
 };
 
