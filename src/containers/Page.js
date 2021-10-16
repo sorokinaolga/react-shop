@@ -7,6 +7,7 @@ import Product from './ProductContainer';
 import MainContainer from './MainContainer';
 import Preloader from '../components/Preloader/Preloader';
 import ErrorPage from '../components/ErrorPage/ErrorPage';
+import CartContainer from './CartContainer';
 
 class Page extends Component {
   render() {
@@ -24,6 +25,7 @@ class Page extends Component {
           <Switch>
             <Route path="/" exact component={MainContainer} />
             <Route path="/product/:id" component={Product} />
+            <Route path="/cart" component={CartContainer} />
             <Route render={() => <ErrorPage title='Что-то пошло не так' />} />
           </Switch>
         }

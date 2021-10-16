@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Basket from '../components/Basket/Basket';
+import CartSidebar from '../components/CartSidebar/CartSidebar';
 import Button from '../components/Button/Button';
 import { clearBasket, postBasket } from '../store/basket/actions';
 
-const BasketContainer = (props) => {
-  const { items, clearBasket, postBasket, isSave, isError, isLoading } = props;
+const CartSidebarContainer = (props) => {
+  const { items, clearBasket, postBasket, isSave, isError, isLoading, products } = props;
 
   const disabled = isLoading || !items.length;
 
@@ -21,10 +21,10 @@ const BasketContainer = (props) => {
   };
 
   return (
-    <Basket count={items.length} isSuccess={isSave} error={isError}>
-      {!isSave && <Button value="Сохранить корзину" onClick={handleClickSave} disabled={disabled} /> }
-      {isSave && <Button value="Очистить корзину" onClick={handleClickClear} disabled={disabled} /> }
-    </Basket>
+    <CartSidebar count={items.length} isSuccess={isSave} error={isError} products={products}>
+      <Button value="Сохранить корзину" onClick={handleClickSave} disabled={disabled} />
+      <Button value="Очистить корзину" onClick={handleClickClear} disabled={disabled} />
+    </CartSidebar>
   );
 };
 
@@ -44,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BasketContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CartSidebarContainer);

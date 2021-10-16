@@ -20,3 +20,7 @@ export const getFiltredProducts = (minValue, maxValue, discount, category, data)
   
   return products;
 };
+
+export const getTotalProductsPrice = (products) => {
+  return products.reduce((current, item) => item.price + current, 0);
+}
