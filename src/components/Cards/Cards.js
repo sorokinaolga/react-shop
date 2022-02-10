@@ -8,7 +8,6 @@ import RatingComponent from '../RatingComponent/RatingComponent';
 import ButtonAdd from '../../containers/ButtonAdd';
 import logRenderComponent from '../../hocs/logRenderComponent';
 import style from './Cards.module.css';
-import imgProduct from '../../img/product.jpg';
 
 const Cards = (props) => {
   const { products } = props;
@@ -21,7 +20,7 @@ const Cards = (props) => {
             <Link className={style.cardLink} to={`/product/${item.id}`}>
               <ProductItem
                 isInStock={item.status === 'IN_STOCK'}
-                img={imgProduct}
+                img={item.img}
                 title={item.name}
                 price={formatMoney(item.price, 0, '.', ' ')}
                 subPriceContent={item.subPriceContent}

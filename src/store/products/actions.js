@@ -1,11 +1,25 @@
 import * as types from './types';
-import { changeFilter } from '../filters/actions';
-import { maxBy, minBy } from 'csssr-school-utils';
-import { getCategories } from '../../utils';
+import {
+  changeFilter
+} from '../filters/actions';
+import {
+  maxBy,
+  minBy
+} from 'csssr-school-utils';
+import {
+  getCategories
+} from '../../utils';
 
-export const setSuccessLoading = (value) => ({ type: types.SUCCESS_FETCH, payload: value });
-export const setStartLoading = () => ({ type: types.START_FETCH });
-export const setErrorLoading = () => ({ type: types.ERROR_FETCH });
+export const setSuccessLoading = (value) => ({
+  type: types.SUCCESS_FETCH,
+  payload: value
+});
+export const setStartLoading = () => ({
+  type: types.START_FETCH
+});
+export const setErrorLoading = () => ({
+  type: types.ERROR_FETCH
+});
 
 export const setFilters = (products) => {
   return dispatch => {
@@ -18,7 +32,7 @@ export const setFilters = (products) => {
 export const fetchProducts = () => (dispatch) => {
   dispatch(setStartLoading());
 
-  fetch('https://course-api.school.csssr.com/products')
+  fetch('https://run.mocky.io/v3/5dfdd211-5f39-49d8-a1a6-5625be210713')
     .then(response => {
       if (response.ok) {
         return response.json();

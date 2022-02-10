@@ -5,7 +5,6 @@ import {formatMoney} from 'csssr-school-utils';
 import { getProductById } from '../store/selectors';
 import ProductPage from '../components/ProductPage/ProductPage';
 import NotFound from '../components/NotFound/NotFound';
-import imgProduct from '../img/product.jpg';
 
 class Product extends Component {
   render() {
@@ -17,7 +16,7 @@ class Product extends Component {
           <ProductPage 
             id={this.props.item.id}
             isInStock={this.props.item.status === 'IN_STOCK'}
-            img={imgProduct}
+            img={this.props.item.img}
             title={this.props.item.name}
             price={formatMoney(this.props.item.price, 0, '.', ' ')}
             subPriceContent={this.props.item.subPriceContent}
