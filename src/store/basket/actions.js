@@ -22,12 +22,12 @@ const clearBasket = () => ({
 const postBasket = (items) => {
   return (dispatch) => {
     dispatch(loadingBasket());
-    fetch('https://run.mocky.io/v3/d8a98820-df12-40e7-906b-b8e3e3604f19', {
+    fetch('https://run.mocky.io/v3/e7c2868e-8539-4f11-9e8e-3658416232d1', {
         method: 'POST',
         body: JSON.stringify(items),
         mode: 'cors',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Access-Control-Allow-Origin': '*',
         },
       })
       .then(response => {

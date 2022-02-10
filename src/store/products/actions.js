@@ -32,7 +32,7 @@ export const setFilters = (products) => {
 export const fetchProducts = () => (dispatch) => {
   dispatch(setStartLoading());
 
-  fetch('https://run.mocky.io/v3/5dfdd211-5f39-49d8-a1a6-5625be210713')
+  fetch('https://run.mocky.io/v3/a75795fc-0318-4001-b001-1b100a5f5a3f')
     .then(response => {
       if (response.ok) {
         return response.json();
