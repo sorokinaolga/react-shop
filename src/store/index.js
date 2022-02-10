@@ -7,7 +7,7 @@ import filtersReducer from './filters/reducer';
 import productsReducer from './products/reducer';
 import basketReducer from './basket/reducer';
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
 
 const rootReducer = (history) =>
   combineReducers({

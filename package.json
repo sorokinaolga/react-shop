@@ -2,6 +2,7 @@
   "name": "csssr-school-course",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sorokinaolga.github.io/react-shop/",
   "dependencies": {
     "connected-react-router": "^6.9.1",
     "csssr-school-input-discount": "git+https://github.com/CSSSR-School/junior-course-input-discount.git",
